@@ -1,11 +1,12 @@
 const shoppingList = ['Managu', 'Mrenda', 'Matumbo'];
+
 // Utility functions for DOM manipulation
-function createAnElement(li) {
-   return document.createElement(li)
+function createAnElement(element) {
+    return document.createElement(element)
 }
 
 function addText(element, text) {
-    return (element.innerTExt = text)
+    return (element.textContent = text);
 }
 
 function appendChild(parentElement, childElement) {
@@ -13,7 +14,7 @@ function appendChild(parentElement, childElement) {
 }
 
 function select(selector) {
-    return document.querySelector
+    return document.querySelector(selector)
 }
 
 function listen(element, event, callback) {
@@ -23,16 +24,16 @@ function listen(element, event, callback) {
 function addAttribute(element, attribute, content) {
     return element.setAttribute(attribute, content)
 }
-document.addEventListener("DOMContentLoaded", displayItems)
-listen(document, 'DOMContentLoaded', displayItems)
 
-const ol = document.querySelector("ol")
+listen(document, 'DOMContentLoaded', displayItems);
+
+
+const ol = select('ol');
 
 function displayItems() {
-    shoppingList.forEach((item) =>{
-        const li = createAnElement("li")
-        li.setAttribute("class", "yho")
-        addText(li, item)
-        appendChild(ol, li)
-     })
+    shoppingList.forEach((Item) => {
+        const li = createAnElement("li");
+        addText(li, Item)
+        appendChild(ol, li);
+    })
 }
