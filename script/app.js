@@ -1,4 +1,4 @@
-const shoppingList = ['Yeezy', 'Mrenda', 'Matumbo'];
+const shoppingList = [];
 
 // Utility functions for DOM manipulation
 function createAnElement(element) {
@@ -62,5 +62,16 @@ function addItem(event) {
     
     event.target.reset()
 }
+
+const deleteButton = select(".delete")
+
+listen(deleteButton, 'click', clearList);
+
+function clearList() {
+    shoppingList.splice(0)
+
+    displayItems();
+}
+
 
 
