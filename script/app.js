@@ -37,11 +37,14 @@ function createAListItem(Item) {
         addText(li, Item);
         appendChild(ol, li);
 
-listen(li, 'click', toggleChecked);
-
-function toggleChecked() {
-    li.classList.toggle("checked")
+listen(li, 'click', () => toggleChecked(li));
 }
+
+
+function toggleChecked(li) {
+    
+    
+    li.classList.toggle("checked")
 }
 
 
