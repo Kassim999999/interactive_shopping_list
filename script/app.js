@@ -1,4 +1,4 @@
-const shoppingList = ['Managu', 'Mrenda', 'Matumbo'];
+const shoppingList = ['Yeezy', 'Mrenda', 'Matumbo'];
 
 // Utility functions for DOM manipulation
 function createAnElement(element) {
@@ -24,16 +24,24 @@ function listen(element, event, callback) {
 function addAttribute(element, attribute, content) {
     return element.setAttribute(attribute, content)
 }
+const ol = select('ol');
 
 listen(document, 'DOMContentLoaded', displayItems);
 
-
-const ol = select('ol');
-
 function displayItems() {
-    shoppingList.forEach((Item) => {
-        const li = createAnElement("li");
-        addText(li, Item)
-        appendChild(ol, li);
-    })
+    shoppingList.forEach(createAListItem)
 }
+
+function createAListItem(Item) {
+        const li = createAnElement("li");
+        addText(li, Item);
+        appendChild(ol, li);
+
+listen(li, 'click', toggleChecked);
+
+function toggleChecked() {
+    li.classList.toggle("checked")
+}
+}
+
+
